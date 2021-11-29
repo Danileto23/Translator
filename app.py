@@ -6,13 +6,10 @@ from dotenv import load_dotenv
 load_dotenv()
 from flask import Flask, render_template,request
 app = Flask(__name__)
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
-
-@app.route('/', methods=['POST'])
-def index_post():
     # Read the values from the form
     original_text = request.form['text']
     target_language = request.form['language']
